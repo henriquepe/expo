@@ -57,6 +57,7 @@ describe.each(
     expect(files).toContain('posts/[postId].html');
     expect(files).toContain('posts/static-post-1.html');
     expect(files).toContain('posts/static-post-2.html');
+    expect(files).toContain('slow.html');
     expect(files).toContain('static-helper.html');
     expect(files).toContain('server-helper.html');
 
@@ -75,6 +76,7 @@ describe.each(
     expect(files).toContain('_expo/loaders/posts/static-post-1');
     expect(files).toContain('_expo/loaders/posts/static-post-2');
     expect(files).toContain('_expo/loaders/(group)/index');
+    expect(files).toContain('_expo/loaders/slow');
     expect(files).toContain('_expo/loaders/static-helper');
   });
 
@@ -274,6 +276,7 @@ describe.each(
         { namedRegex: '^/posts/static\\-post\\-1(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/posts/static\\-post\\-2(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/request(?:/)?$', headers: SSG_DEFAULT },
+        { namedRegex: '^/slow(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/static\\-helper(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/_expo/loaders/\\(group\\)/index(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/_expo/loaders/env(?:/)?$', headers: SSG_DEFAULT },
@@ -288,6 +291,7 @@ describe.each(
         { namedRegex: '^/_expo/loaders/posts/static\\-post\\-1(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/_expo/loaders/posts/static\\-post\\-2(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/_expo/loaders/request(?:/)?$', headers: SSG_DEFAULT },
+        { namedRegex: '^/_expo/loaders/slow(?:/)?$', headers: SSG_DEFAULT },
         { namedRegex: '^/_expo/loaders/static\\-helper(?:/)?$', headers: SSG_DEFAULT },
         // Loader-declared headers: appended last so they win, applied to page and loader file.
         {

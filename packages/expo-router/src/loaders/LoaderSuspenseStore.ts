@@ -34,8 +34,12 @@ export class LoaderSuspenseStore {
     }
   }
 
-  keys(): string[] {
-    return [...this.entries.keys()];
+  retain(livePaths: ReadonlySet<string>) {
+    for (const path of this.entries.keys()) {
+      if (!livePaths.has(path)) {
+        this.clear(path);
+      }
+    }
   }
 
   reset() {
